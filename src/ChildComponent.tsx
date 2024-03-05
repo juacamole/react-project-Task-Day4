@@ -1,6 +1,6 @@
 type Properties = {
     id: number;
-    name: string;
+    name?: string;
 }
 
 
