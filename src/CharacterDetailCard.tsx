@@ -3,7 +3,7 @@ import {response} from "./data.ts";
 import ChildComponent from "./ChildComponent.tsx";
 import {useState} from "react";
 import {useParams} from "react-router-dom";
-import Header from "./Header.tsx";
+
 
 export default function CharacterDetailCard(){
 
@@ -22,7 +22,6 @@ export default function CharacterDetailCard(){
 
 
     return <div>
-        <Header></Header>
         {result.map((d) => {
         return <ChildComponent id={d.id} name={d.name}/>})}
     </div>

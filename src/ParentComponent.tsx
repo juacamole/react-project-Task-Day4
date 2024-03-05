@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { response } from "./data.ts";
 import ChildComponent from "./ChildComponent.tsx";
-import Header from "./Header.tsx";
-
 export default function ParentComponent() {
     const [error, setError] = useState<string>();
     const [characters, setCharacters] = useState(response.results);
@@ -34,7 +32,7 @@ export default function ParentComponent() {
     }
 
     return <div>
-        <Header></Header>
+
         <input onChange={(event) => filterCharacters(event.target.value.toLowerCase())} />
 
         {error && <p>{error}</p>}
