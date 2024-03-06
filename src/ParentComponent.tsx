@@ -1,9 +1,14 @@
-import { useState } from "react";
-import { response } from "./data.ts";
+import React, { useState } from "react";
+import {Character, response} from "./data.ts";
 import ChildComponent from "./ChildComponent.tsx";
-export default function ParentComponent() {
+
+type ParentComponentsProps = {
+    characters: Character[];
+    setCharacters:  React.Dispatch<React.SetStateAction<Character[]>>
+}
+
+export default function ParentComponent({setCharacters, characters}: ParentComponentsProps) {
     const [error, setError] = useState<string>();
-    const [characters, setCharacters] = useState(response.results);
     const [visibleCharacters, setVisibleCharacters] = useState([]);
     const [currentPage, setCurrentPage] = useState(0);
     const charactersPerPage = 5;

@@ -1,17 +1,15 @@
 
 import {response} from "./data.ts";
 import ChildComponent from "./ChildComponent.tsx";
-import {useState} from "react";
 import {useParams} from "react-router-dom";
 
 
 export default function CharacterDetailCard(){
 
-    const [characters, setCharacters] = useState(response.results)
+    const characters = response.results
     const params = useParams();
     const id = params.id;
 
-    console.log(id)
 
 
 
@@ -23,6 +21,7 @@ export default function CharacterDetailCard(){
 
     return <div>
         {result.map((d) => {
-        return <ChildComponent id={d.id} name={d.name}/>})}
+        return <ChildComponent key={d.id} id={d.id} name={d.name}/>})}
     </div>
 }
+
