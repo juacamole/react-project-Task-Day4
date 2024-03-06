@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-import {Character, response} from "./data.ts";
+import {Character} from "./data.ts";
+import {useNavigate} from "react-router-dom";
 
 type ReactFormProps = {
     characters: Character[];
@@ -8,8 +9,9 @@ type ReactFormProps = {
 
 export default function ReactForm({updateCharacters, characters}: ReactFormProps){
 
+    const navigate = useNavigate();
     const [character, setCharacter] = useState<Character>({
-        "id": response.results.length +1,
+        "id": characters.length +1,
         "name": "",
         "status": "",
         "species": "",
@@ -45,7 +47,9 @@ export default function ReactForm({updateCharacters, characters}: ReactFormProps
             character
         ]);
         e.preventDefault()
-        }}>
+            navigate("/characters/created")
+        }
+        }>
         <input name="name" placeholder={"name"} onChange={(e) => {
             saveCharactersOnChange(e.target.name, e.target.value)
         }}/>
